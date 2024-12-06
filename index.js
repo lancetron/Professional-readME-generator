@@ -16,12 +16,12 @@ const questions = [
     {
         type: 'input',
         name: 'installation',
-        message: 'What are teh installation steps?',
+        message: 'What are the installation steps?',
     },
     {
         type: 'input',
         name: 'usage',
-        message: 'How do you use the project',
+        message: 'How do you use the project?',
     },
     {
         type: 'input',
@@ -37,32 +37,45 @@ const questions = [
         type: 'input',
         name: 'license',
         message: 'What license is your project under?',
+
+        type: 'input',
+        name: 'GitHub',
+        message: 'Enter GitHub username',
+    },
+    {
+        type: 'input',
+        name: 'Email',
+        message: 'Enter email'
     },
 ];
 
 //ask user for inputs
 inquirer.prompt(questions).then((answers) => {
     //make content for the README.md
-    const readmeContent =   `
-    ${answers.title}
+    const readmeContent =  `
+    # ${answers.title}
     
-    Description
+    ## Description
     ${answers.description}
     
-    Installation
+    ## Installation
     ${answers.installation}
     
-    Usage
+    ## Usage
     ${answers.usage}
     
-    Contributing
+    ## Contributing
     ${answers.contributing}
     
-    Tests
+    ## Tests
     ${answers.tests}
     
-    License
+    ## License
     ${answers.license} license
+
+    ## Questions
+    GitHub: https://github.com/${answers.GitHub}
+    Email: ${answers.Email} This is my email feel free to reach out to me with any questions.
     `;
 
 
